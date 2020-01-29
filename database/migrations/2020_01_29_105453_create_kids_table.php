@@ -15,6 +15,13 @@ class CreateKidsTable extends Migration
     {
         Schema::create('kids', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('image_id')->nullable();
+            $table->unsignedBigInteger('announcement_id')->index();
+            $table->foreign('announcement_id')->references('id')
+                ->on('announcements');
+            $table->unsignedBigInteger('announcement_id')->index();
+            $table->foreign('announcement_id')->references('id')
+                ->on('announcements');
             $table->boolean('is_present')->default(false);
             $table->string('name');
             $table->timestamps();
