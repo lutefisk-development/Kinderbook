@@ -18,9 +18,6 @@ class CreateDepartmentsTable extends Migration
             $table->unsignedBigInteger('announcement_id')->index();
             $table->foreign('announcement_id')->references('id')
                 ->on('announcements');
-            $table->unsignedBigInteger('kindergarten_id')->index();
-            $table->foreign('kindergarten_id')->references('id')
-                ->on('kindergartens');
             $table->unsignedBigInteger('user_id')->index();
             $table->foreign('user_id')->references('id')
                 ->on('users');

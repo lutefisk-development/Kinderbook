@@ -16,9 +16,6 @@ class CreateKidsTable extends Migration
         Schema::create('kids', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('image_id')->nullable();
-            $table->unsignedBigInteger('kindergarten_id')->index();
-            $table->foreign('kindergarten_id')->references('id')
-                ->on('kindergartens');
             $table->unsignedBigInteger('message_id')->index();
             $table->foreign('message_id')->references('id')
                 ->on('messages');

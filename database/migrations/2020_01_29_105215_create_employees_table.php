@@ -15,9 +15,9 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('kindergarten_id')->index();
-            $table->foreign('kindergarten_id')->references('id')
-                ->on('kindergartens');
+            $table->unsignedBigInteger('user_id')->index();
+            $table->foreign('user_id')->references('id')
+                ->on('users');
             $table->string('job_title');
             $table->string('name');
             $table->string('address');
