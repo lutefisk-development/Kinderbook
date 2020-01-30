@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Routes for api handling displying kids
+Route::get('/kids', 'KidController@index');             // List all kids
+Route::get('/kid/{id}', 'KidController@show');          // List single kid
