@@ -14,6 +14,6 @@ class Message extends Model
      */
     public function kid()
     {
-        return $this->hasMany(Kid::class);
+        return $this->belongsTo(Kid::class);
     }
 }
