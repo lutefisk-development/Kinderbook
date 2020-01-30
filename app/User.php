@@ -5,6 +5,10 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Kid;
+use App\Kindergarten;
+use App\Department;
+use App\Employee;
 
 class User extends Authenticatable
 {
@@ -42,4 +46,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relations to other models
+     */
+    public function kids()
+    {
+        $this->belongsToMany(Kid::class);
+    }
+
+    public function kindergartens()
+    {
+        return $this->hasMany(Kindergarten::class);
+    }
+
+    public function departments()
+    {
+        return $this->hasMany(Department::class);
+    }
+
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
 }
