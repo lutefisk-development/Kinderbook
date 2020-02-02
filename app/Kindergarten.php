@@ -3,9 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
 use App\Department;
-use App\Employee;
+use App\Kid;
 
 class Kindergarten extends Model
 {
@@ -14,18 +13,13 @@ class Kindergarten extends Model
     /**
      * Relations to other models
      */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
     public function departments()
     {
-        return $this->hasManyThrough(Department::class, User::class);
+        return $this->hasMany(Department::class);
     }
 
-    public function employees()
+    public function kids()
     {
-        return $this->hasManyThrough(Employee::class, User::class);
+        return $this->hasMany(Kid::class);
     }
 }
