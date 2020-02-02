@@ -14,6 +14,6 @@ class Illness extends Model
      */
     public function kids()
     {
-        $this->belongsToMany(Kid::class);
+        $this->belongsTo(Kid::class);
     }
 }
