@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Http\Resources\Json\Resource;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,5 +33,10 @@ class AppServiceProvider extends ServiceProvider
             after change: 4 * 191 = 764 which is less then 767
         */
         Schema::defaultStringLength(191);
+
+        /*
+            This removes the data attribute when using the api.
+        */
+        //Resource::withoutWrapping();
     }
 }
