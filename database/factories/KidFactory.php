@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Kid::class, function (Faker $faker) {
     return [
-        'name' => $faker->FirstName() . ' ' . $faker->lastName()
+        'first_name' => $faker->FirstName(),
+        'last_name' => $faker->lastName(),
     ];
 });
