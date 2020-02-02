@@ -50,11 +50,16 @@ class User extends Authenticatable
      */
     public function kids()
     {
-        $this->belongsToMany(Kid::class);
+        $this->hasMany(Kid::class);
     }
 
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function is_admin()
+    {
+        return $this->role->is_admin ? true : false;
     }
 }
