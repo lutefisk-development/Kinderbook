@@ -17,7 +17,7 @@ class CreateRolesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->string('role_name');
-            $table->boolean('is_admin')-deafult(false);
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
     }
