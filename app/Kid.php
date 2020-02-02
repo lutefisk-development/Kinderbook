@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Department;
 use App\Illness;
 use App\Image;
-use App\Kindergarten;
 use App\Message;
 use App\User;
 
@@ -16,6 +16,11 @@ class Kid extends Model
     /**
      * Relations to other models
      */
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
     public function illnesses()
     {
         return $this->hasMany(Illness::class);
@@ -24,11 +29,6 @@ class Kid extends Model
     public function image()
     {
         return $this->hasOne(Image::class);
-    }
-
-    public function kindergarten()
-    {
-        return $this->belongsTo(Kindergarten::class);
     }
 
     public function messages()

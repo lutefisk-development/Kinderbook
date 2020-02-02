@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Announcement;
+use App\Kid;
 use App\Kindergarten;
 
 class Department extends Model
@@ -16,6 +17,11 @@ class Department extends Model
     public function announcements()
     {
         return $this->hasMany(Announcement::class);
+    }
+
+    public function kids()
+    {
+        return $this->hasMany(Kid::class);
     }
 
     public function kindergarten()

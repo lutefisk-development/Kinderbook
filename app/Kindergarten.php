@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Department;
-use App\Kid;
 
 class Kindergarten extends Model
 {
@@ -16,10 +15,5 @@ class Kindergarten extends Model
     public function departments()
     {
         return $this->hasMany(Department::class);
-    }
-
-    public function kids()
-    {
-        return $this->hasMany(Kid::class);
     }
 }
