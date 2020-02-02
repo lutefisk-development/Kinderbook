@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
 use App\Announcement;
+use App\Kindergarten;
 
 class Department extends Model
 {
@@ -13,13 +13,13 @@ class Department extends Model
     /**
      * Relations to other models
      */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
     public function announcements()
     {
         return $this->hasMany(Announcement::class);
+    }
+
+    public function kindergarten()
+    {
+        return $this->belongsTo(Kindergarten::class);
     }
 }
