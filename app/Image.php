@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Kid;
 use App\Announcement;
+use App\Kid;
 
 class Image extends Model
 {
@@ -13,13 +13,13 @@ class Image extends Model
     /**
      * Relations to other models
      */
-    public function kid()
-    {
-        return $this->hasOne(Kid::class);
-    }
-
     public function announcement()
     {
-        return $this->hasOne(Announcement::class);
+        return $this->belongsTo(Announcement::class);
+    }
+
+    public function kid()
+    {
+        return $this->belongsTo(Kid::class);
     }
 }
