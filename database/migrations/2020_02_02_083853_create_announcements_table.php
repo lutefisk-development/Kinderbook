@@ -15,9 +15,7 @@ class CreateAnnouncementsTable extends Migration
     {
         Schema::create('announcements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('department_id')->index();
-            $table->foreign('department_id')->references('id')
-                ->on('departments');
+            $table->unsignedInteger('department_id');
             $table->string('title');
             $table->text('content');
             $table->timestamps();
