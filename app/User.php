@@ -6,9 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Kid;
-use App\Kindergarten;
-use App\Department;
-use App\Employee;
+use App\Role;
 
 class User extends Authenticatable
 {
@@ -20,13 +18,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 
+        'first_name',
+        'last_name', 
         'email', 
         'password',
         'address',
         'city',
         'phone_nr',
-        'zip',
     ];
 
     /**
@@ -55,18 +53,8 @@ class User extends Authenticatable
         $this->belongsToMany(Kid::class);
     }
 
-    public function kindergartens()
+    public function role()
     {
-        return $this->hasMany(Kindergarten::class);
-    }
-
-    public function departments()
-    {
-        return $this->hasMany(Department::class);
-    }
-
-    public function employees()
-    {
-        return $this->hasMany(Employee::class);
+        return $this->hasOne(Role::class);
     }
 }
