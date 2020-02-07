@@ -1,0 +1,37 @@
+/**
+ * Styles for route: /kids
+ */
+
+#all-kids-wrapper {
+    .departments {
+        h2 {
+            font-size: 1.3rem;
+        }
+    
+        .card {
+            flex-direction: row;
+        }
+    
+        p {
+            margin-bottom: .5rem;
+        }
+    }
+    
+    .kids {
+        .kid {
+            background-color:rgb(106, 147, 203);
+            img {
+                border-radius: 50%;
+                height: 200px;
+                width: 200px;
+                margin: auto;
+            }
+    
+            p {
+                color: #fff;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

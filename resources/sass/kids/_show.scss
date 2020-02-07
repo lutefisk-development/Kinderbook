@@ -1,0 +1,22 @@
+/**
+ * Styles for route: /kids.show
+ */
+
+#single-kid-wrapper {
+    .messages {
+        .card {
+            display: flex;
+            justify-content: flex-end;
+
+            #single-message {
+                flex-grow: 2;
+            }
+
+            form {
+                textarea {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}

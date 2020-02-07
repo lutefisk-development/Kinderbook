@@ -11356,3 +11356,78 @@ a.text-dark:focus {
   }
 }
 
+/**
+ * Custom CSS for the project.
+ */
+
+/**
+ * Styles for route: /kids
+ */
+
+#all-kids-wrapper .departments h2 {
+  font-size: 1.3rem;
+}
+
+#all-kids-wrapper .departments .card {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+}
+
+#all-kids-wrapper .departments p {
+  margin-bottom: 0.5rem;
+}
+
+#all-kids-wrapper .kids .kid {
+  background-color: #6a93cb;
+}
+
+#all-kids-wrapper .kids .kid img {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
+
+#all-kids-wrapper .kids .kid p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/**
+ * Styles for route: /kids.create
+ */
+
+#add-child-wrapper #add-child {
+  margin: 3rem 0 0 0;
+}
+
+/**
+ * Styles for route: /kids.show
+ */
+
+#single-kid-wrapper .messages .card {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+}
+
+#single-kid-wrapper .messages .card #single-message {
+  -webkit-box-flex: 2;
+          flex-grow: 2;
+}
+
+#single-kid-wrapper .messages .card form textarea {
+  max-width: 100%;
+}
+
+/**
+ * Styles for route: /kids.edit
+ */
+
+#edit-child-wrapper #edit-child {
+  margin: 3rem 0 0 0;
+}
+
