@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -25,13 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        // Example on how to secure application
-        // Gate::define('update-post', function($user, $post) {
-        //     return $user->id == $post->user_id;
-        // });
+        // only users can edit own child
+        Gate::define('parenting', function($user, $kid) {
+            return $user->id == $kid->user_id;
+        });
 
-        // Gate::define('delete-post', function($user, $post) {
-        //     return $user->id == $post->user_id;
-        // });
+        // admin can overide all of this
+        Gate::before(function($user, $ability) {
+            if($user->is_admin()) {
+                return true;
+            }
+        });
     }
 }
