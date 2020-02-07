@@ -14,7 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/kids', 'KidController');
+Route::resource('/departments', 'DepartmentController');
+Route::resource('/messages', 'MessageController');
+
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
