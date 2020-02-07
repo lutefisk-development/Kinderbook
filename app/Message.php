@@ -7,7 +7,10 @@ use App\Kid;
 
 class Message extends Model
 {
-    //protected $fillable[];
+    protected $fillable = [
+        'kid_id',
+        'content',
+    ];
 
     /**
      * Relations to other models
