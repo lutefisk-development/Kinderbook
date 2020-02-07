@@ -11,7 +11,13 @@ use App\User;
 
 class Kid extends Model
 {
-    //protected $fillable[];
+    protected $fillable = [
+        'department_id',
+        'user_id',
+        'first_name',
+        'is_present',
+        'last_name',
+    ];
 
     /**
      * Relations to other models
