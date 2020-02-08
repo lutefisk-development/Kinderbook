@@ -1,6 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
+    @include('partials/status')
     <div class="container" id="all-kids-wrapper">
         <h1 class="text-center mb-3 mt-3">Alla Avdelningar i Storkboet:</h1>
         <div class="row departments mb-3">
