@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('./kinderbook');
 
 window.Vue = require('vue');
 
