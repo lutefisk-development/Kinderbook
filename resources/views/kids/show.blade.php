@@ -13,9 +13,15 @@
                     @endif
                     <p class="card-text text-center mt-2">{{ $kid->first_name }}&nbsp;{{ $kid->last_name }}</p>
                     <p class="card-text text-center mt-2">Tillhör avdelningen: {{ $kid->department->name }}</p>
-                <p class="card-text text-center mt-2">Förälder: {{ $kid->user->first_name }} {{ $kid->user->last_name }}</p>
-                <a href="{{ route('kids.edit', ['kid' => $kid->id]) }}" class="btn btn-success btn-block">Ändra uppgifter</a>
-                <a href="#" class="btn btn-danger btn-block">Ta bort barnet ifrån förskolan</a>
+                    <p class="card-text text-center mt-2">Förälder: {{ $kid->user->first_name }} {{ $kid->user->last_name }}</p>
+                    <a href="{{ route('kids.edit', ['kid' => $kid->id]) }}" class="btn btn-success btn-block">Ändra uppgifter</a>
+
+                    <form method="POST" action="{{ route('kids.destroy', ['kid' => $kid->id]) }}" class="remove-child">
+                        @csrf
+                        @method('DELETE')
+
+                        <input type="submit" value="Ta bort barnet ifrån förskolan" class="btn btn-danger btn-block">
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 d-flex align-items-stretch messages">
