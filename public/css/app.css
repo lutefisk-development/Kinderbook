@@ -11510,6 +11510,10 @@ body .layouts-wrapper .row:first-child {
   max-width: 100%;
 }
 
+#single-kid-wrapper .card .remove-child {
+  margin-top: 0.5rem;
+}
+
 /**
  * Styles for route: /kids.edit
  */
