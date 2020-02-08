@@ -11383,6 +11383,35 @@ body .py-4 {
   padding-top: 0 !important;
 }
 
+body .py-4 .container {
+  margin-top: 3rem;
+}
+
+body .py-4 .jumbotron .container {
+  margin-top: 0 !important;
+}
+
+body .py-4 .jumbotron .container .first,
+body .py-4 .jumbotron .container .second {
+  font-size: 3rem !important;
+}
+
+body .layouts-wrapper .row .col-md-6 img {
+  border-radius: 5px;
+  box-shadow: 10px 10px 16px -5px #a1a1a1;
+}
+
+body .layouts-wrapper .row .text-inside-layouts-wrapper {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+body .layouts-wrapper .row:first-child {
+  margin-bottom: 2rem;
+}
+
 /**
  * Styles for route: /kids
  */

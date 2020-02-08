@@ -18,8 +18,45 @@ body {
     small {
         font-family: $montserrat;
     }
-    
+
     .py-4 {
         padding-top: 0!important;
+
+        .container {
+            margin-top: 3rem;
+        }
+
+        .jumbotron {
+            
+            .container {
+                margin-top: 0!important;
+                .first,
+                .second {
+                    font-size: 3rem!important;
+                }
+            }
+        }
+    }
+
+    .layouts-wrapper {
+        .row {
+            .col-md-6 {
+                img {
+                    border-radius: 5px;
+                    -webkit-box-shadow: 10px 10px 16px -5px rgba(161,161,161,1);
+                    -moz-box-shadow: 10px 10px 16px -5px rgba(161,161,161,1);
+                    box-shadow: 10px 10px 16px -5px rgba(161,161,161,1);
+                }
+            }
+
+            .text-inside-layouts-wrapper {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .row:first-child {
+            margin-bottom: 2rem;
+        }
     }
 }
