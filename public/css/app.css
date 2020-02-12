@@ -11361,6 +11361,62 @@ a.text-dark:focus {
  */
 
 /**
+ * Styles for route: /announcements.index
+ */
+
+#all-announcements-wrapper .card {
+  margin-bottom: 1rem;
+}
+
+#all-announcements-wrapper .card img {
+  height: 400px;
+}
+
+#all-announcements-wrapper .card .card-footer span {
+  float: right;
+}
+
+#all-announcements-wrapper .card:last-child {
+  margin-bottom: 0;
+}
+
+#all-announcements-wrapper form {
+  margin-bottom: 2rem;
+}
+
+#all-announcements-wrapper form textarea {
+  resize: none;
+}
+
+/**
+ * Styles for route: /departments.index
+ */
+
+#all-departments-wrapper h1 {
+  margin-bottom: 3rem;
+}
+
+/**
+ * Styles for route: /departments.create
+ */
+
+#add-department-wrapper #add-department {
+  margin: 3rem 0 0 0;
+}
+
+/**
+ * Styles for route: /departments.show
+ */
+
+#single-department-wrapper .card .remove-department {
+  margin-top: 0.5rem;
+}
+
+#single-department-wrapper .card .back {
+  margin-bottom: 1.5rem;
+}
+
+/**
  * General styles
  */
 
@@ -11430,8 +11486,10 @@ body .layouts-wrapper .row:first-child {
   margin-bottom: 0.5rem;
 }
 
-#all-kids-wrapper .kids .kid {
-  background-color: #6a93cb;
+#all-kids-wrapper .kids {
+  margin-bottom: 3rem;
+  /* classes used for checking if kids are: present,  not present or sick */
+  /* /classes used for checking if kids are: present,  not present or sick */
 }
 
 #all-kids-wrapper .kids .kid img {
@@ -11442,6 +11500,44 @@ body .layouts-wrapper .row:first-child {
 }
 
 #all-kids-wrapper .kids .kid p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+#all-kids-wrapper .kids .kid .inside {
+  margin-bottom: 1rem;
+}
+
+#all-kids-wrapper .kids .kid .inside small {
+  color: #fff;
+}
+
+#all-kids-wrapper .kids .kid.red {
+  background-color: #CB5255;
+}
+
+#all-kids-wrapper .kids .kid.blue {
+  background-color: #6A93CB;
+}
+
+#all-kids-wrapper .kids .kid.green {
+  background-color: #5E9F67;
+}
+
+#own-kids-wrapper .kids .kid {
+  background-color: #6a93cb;
+}
+
+#own-kids-wrapper .kids .kid img {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
+
+#own-kids-wrapper .kids .kid p {
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -11465,8 +11561,10 @@ body .layouts-wrapper .row:first-child {
   margin-bottom: 0.5rem;
 }
 
-#all-kids-wrapper .kids .kid {
-  background-color: #6a93cb;
+#all-kids-wrapper .kids {
+  margin-bottom: 3rem;
+  /* classes used for checking if kids are: present,  not present or sick */
+  /* /classes used for checking if kids are: present,  not present or sick */
 }
 
 #all-kids-wrapper .kids .kid img {
@@ -11477,6 +11575,44 @@ body .layouts-wrapper .row:first-child {
 }
 
 #all-kids-wrapper .kids .kid p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+#all-kids-wrapper .kids .kid .inside {
+  margin-bottom: 1rem;
+}
+
+#all-kids-wrapper .kids .kid .inside small {
+  color: #fff;
+}
+
+#all-kids-wrapper .kids .kid.red {
+  background-color: #CB5255;
+}
+
+#all-kids-wrapper .kids .kid.blue {
+  background-color: #6A93CB;
+}
+
+#all-kids-wrapper .kids .kid.green {
+  background-color: #5E9F67;
+}
+
+#own-kids-wrapper .kids .kid {
+  background-color: #6a93cb;
+}
+
+#own-kids-wrapper .kids .kid img {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
+
+#own-kids-wrapper .kids .kid p {
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
@@ -11507,6 +11643,7 @@ body .layouts-wrapper .row:first-child {
 }
 
 #single-kid-wrapper .messages .card form textarea {
+  resize: none !important;
   max-width: 100%;
 }
 
