@@ -7,6 +7,8 @@ use App\Kid;
 use App\User;
 use App\Image;
 use App\Message;
+use App\Illness;
+use Carbon\Carbon;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -74,8 +76,7 @@ class KidController extends Controller
         $validatedData = $request->validate($this->validation_rules);
 
         $kid = new Kid();
-        // A kid always starts at the department with id 1
-        $kid->department_id = 1;
+        $kid->department_id = Department::min('id');
         $kid->user_id = Auth::user()->id;
         $kid->first_name = $validatedData['first_name'];
         $kid->last_name = $validatedData['last_name'];
@@ -95,8 +96,6 @@ class KidController extends Controller
             $image->save();
         }
 
-        $kid->save();
-
         // Redirects the user back to the newly added kid.
         return redirect()->route('kids.show', ['kid' => $kid->id])->with('status', "{$kid->first_name} {$kid->last_name} blev registrerat i {$kid->department->name} avdelningen");
     }
@@ -112,7 +111,7 @@ class KidController extends Controller
         if(Gate::denies("parenting", $kid)) {
             abort(403, "STOP! Det här är inte ditt barn");
         }
-        
+
         return view('kids.show', [
             'kid' => Kid::findOrFail($kid->id),
             'messages' => Message::where('kid_id', '=', $kid->id)->orderBy('id', 'desc')->take(3)->get()
@@ -134,6 +133,8 @@ class KidController extends Controller
         return view('kids/edit', [
             'kid' => Kid::findOrfail($kid->id),
             'departments' => Department::all(),
+            'today' => Carbon::now()->toDateString(),
+            'tomorrow' => Carbon::tomorrow()->toDateString(),
         ]);
     }
 
@@ -151,7 +152,7 @@ class KidController extends Controller
 
         // Conditional to check if admin has changed the id in the form.
         if(is_null($request->input('department_id'))) {
-            $kid->department_id = 1;
+            $kid->department_id = Department::min('id');
         } else {
             $kid->department_id = $request->input('department_id');
         }
@@ -160,6 +161,17 @@ class KidController extends Controller
         $kid->last_name = $validatedData['last_name'];
 
         $kid->save();
+
+        if(!is_null($request->input('date_start')) && !is_null($request->input('date_start'))) {
+
+            $illness = new Illness();
+
+            $illness->kid_id = $kid->id;
+            $illness->date_start = $request->input('date_start');
+            $illness->date_end = $request->input('date_end');
+
+            $illness->save();
+        }
 
         // Goes into the statement if the user has uploaded an image
         if($request->hasFile('file')) {
@@ -174,9 +186,6 @@ class KidController extends Controller
             $image->save();
         }
 
-        
-        $kid->save();
-
         // Redirects the user back to the newly added kid.
         return redirect()->route('kids.show', ['kid' => $kid->id])->with('status', "{$kid->first_name} {$kid->last_name}s uppgifter har blivit uppdaterat");
     }
@@ -189,20 +198,24 @@ class KidController extends Controller
      */
     public function destroy(Kid $kid)
     {
+        if(Gate::denies("parenting", $kid)) {
+            abort(403, "STOP! Det här är inte ditt barn");
+        }
+
         // removes all messages associated with the current kid
         if(!empty($kid->messages)) {
             foreach($kid->messages as $message) {
                 $message->delete();
             }
         }
-        
+
         // removes all illnesses associated with the current kid
         if(!empty($kid->illnesses)) {
             foreach($kid->illnesses as $illness) {
                 $illness->delete();
             }
         }
-        
+
         // removes image associated with the current kid
         if(!is_null($kid->image)) {
             $kid->image->delete();
@@ -210,12 +223,12 @@ class KidController extends Controller
 
         // removes the current kid
         $kid->delete();
-        return redirect()->route('kids.index')->with('status', "{$kid->first_name} {$kid->last_name} är har blivit avregistrerat ifrån förskolan");
+        return redirect()->route('kids.index')->with('status', "{$kid->first_name} {$kid->last_name} har blivit avregistrerat ifrån förskolan");
     }
 
     /**
      * Helper function for getting right name on file
-     * 
+     *
      * @param  \App\Kid  $path
      * @return new slug to be used on the files path
      */
@@ -238,5 +251,14 @@ class KidController extends Controller
         $replacements[5] = 'o';
 
         return Str::slug(preg_replace($patterns, $replacements, $path), '-');
+    }
+
+    /**
+     * Display all the kids of authenticated user
+     *
+     */
+    public function ownKids()
+    {
+        return view('own-kids', ['kids' => Kid::where('user_id', '=', Auth::user()->id)->get()]);
     }
 }
