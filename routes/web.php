@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/kids', 'KidController');
+Route::get('/own-kids', 'KidController@ownKids')->name('own-kids');
 Route::resource('/departments', 'DepartmentController');
 Route::resource('/messages', 'MessageController');
+Route::resource('announcements', 'AnnouncementController');
 
 
 Auth::routes();
