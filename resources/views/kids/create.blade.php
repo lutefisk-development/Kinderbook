@@ -14,8 +14,7 @@
                     id="first_name" 
                     type="text" 
                     class="form-control" 
-                    name="first_name" 
-                    required 
+                    name="first_name"
                     value="{{ old('first_name') }}" 
                     placeholder="Förnamn">
                 </div>
@@ -27,7 +26,6 @@
                     type="text"
                     class="form-control"
                     name="last_name"
-                    required
                     value="{{ old('last_name') }}"
                     placeholder="Efternamn">
                 </div>
