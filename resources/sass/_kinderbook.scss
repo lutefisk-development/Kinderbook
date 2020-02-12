@@ -2,6 +2,10 @@
  * Custom CSS for the project.
  */
 
+@import 'announcements/index';
+@import 'departments/index';
+@import 'departments/create';
+@import 'departments/show';
 @import 'layouts/general';
 @import 'kids/index';
 @import 'kids/index';
