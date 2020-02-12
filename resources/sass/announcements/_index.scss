@@ -1,0 +1,30 @@
+/**
+ * Styles for route: /announcements.index
+ */
+
+#all-announcements-wrapper {
+    .card {
+        margin-bottom: 1rem;
+        img {
+            height: 400px;
+        }
+
+        .card-footer {
+            span {
+                float: right;
+            }
+        }
+    }
+
+    .card:last-child {
+        margin-bottom: 0;
+    }
+
+    form {
+        margin-bottom: 2rem;
+
+        textarea {
+            resize: none;
+        }
+    }
+}
