@@ -3,7 +3,44 @@
 @section('content')
     @include('partials/status')
     <div class="container" id="all-kids-wrapper">
-        <h1 class="text-center mb-3 mt-3">Alla Avdelningar i Storkboet:</h1>
+        <h1 class="text-center">Alla Barn i Storkboet:</h1>
+        <p class="text-center">Dagens Datum: {{(new Carbon\Carbon())->toDateString()}}</p>
+        <div class="row kids">
+            @foreach($kids as $kid)
+                <div class="col-md-4 col-lg-3 d-flex align-items-stretch">
+                    <div
+                        @foreach($kid->illnesses as $illness)
+                            @if((new Carbon\Carbon())->between($illness->date_start, $illness->date_end))
+                                class="card card-body mt-2 kid red"
+                            @endif
+                        @endforeach
+                        class="card card-body mt-2 kid blue"
+                    >
+                        @if(isset($kid->image->path))
+                            <img src="{{ $kid->image->path }}" alt="" class="card-img-top img-fluid" id="kid-image">
+                        @else
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" class="card-img-top img-fluid" id="kid-image">
+                        @endif
+
+                        {{-- wrapping the p element in a div, to avid unwanted behavior by a eventlistener --}}
+                        <div class="inside">
+                            <p class="card-text text-center mt-2">{{ $kid->first_name }}&nbsp;{{ $kid->last_name }}</p>
+
+                            @foreach($kid->illnesses as $illness)
+                                @if((new Carbon\Carbon())->between($illness->date_start, $illness->date_end))
+                                    <small class="text-center">Förväntas återkomma: {{ $illness->date_end }}</small>
+                                @endif
+                            @endforeach
+                        </div>
+
+                        @if(Auth::user()->is_admin() )
+                            <a href="{{ route('kids.show', ['kid' => $kid->id]) }}" class="btn btn-light btn-block">{{ $kid->user->first_name }} {{ $kid->user->last_name }}s barn</a>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <h1 class="text-center">Alla barn sorterad på varje avdelning:</h1>
         <div class="row departments mb-3">
             <div class="card card-body">
                 @foreach($departments as $department)
@@ -15,32 +52,6 @@
                     </div>
                 @endforeach
             </div>
-        </div>
-        <h1 class="text-center mb-3 mt-3">Alla Barn i Storkboet:</h1>
-        <div class="row kids">
-            @foreach($kids as $kid)
-        <kids kid="{{ $kid }}"></kids>
-                <div class="col-md-4 col-lg-3 d-flex align-items-stretch">
-                    <div 
-                        class="card card-body mt-2 kid"
-                        @if($kid->is_present == 1)
-                            style="background-color: #CB5255"
-                        @endif
-                    >   
-                        
-                        @if(isset($kid->image->path))
-                            <img src="{{ $kid->image->path }}" alt="" class="card-img-top img-fluid" id="kid-image">
-                        @else
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" class="card-img-top img-fluid" id="kid-image">
-                        @endif
-                        <p class="card-text text-center mt-2">{{ $kid->first_name }}&nbsp;{{ $kid->last_name }}</p>
-
-                        @if(Auth::id() === $kid->user->id || Auth::user()->is_admin() )
-                            <a href="{{ route('kids.show', ['kid' => $kid->id]) }}" class="btn btn-light btn-block">{{ $kid->user->first_name }}s barn</a>
-                        @endif
-                    </div>
-                </div>
-            @endforeach
         </div>
     </div>
 @endsection
