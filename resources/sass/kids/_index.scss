@@ -7,16 +7,58 @@
         h2 {
             font-size: 1.3rem;
         }
-    
+
         .card {
             flex-direction: row;
         }
-    
+
         p {
             margin-bottom: .5rem;
         }
     }
-    
+
+    .kids {
+        margin-bottom: 3rem;
+        .kid {
+
+            img {
+                border-radius: 50%;
+                height: 200px;
+                width: 200px;
+                margin: auto;
+            }
+
+            p {
+                color: #fff;
+                font-weight: bold;
+                font-size: 1.2rem;
+                margin-bottom: 0;
+            }
+
+            .inside {
+                margin-bottom: 1rem;
+                small {
+                    color: #fff;
+                }
+            }
+        }
+        /* classes used for checking if kids are: present,  not present or sick */
+        .kid.red {
+            background-color: $logged-in-red;
+        }
+
+        .kid.blue {
+            background-color: $logged-in-blue;
+        }
+
+        .kid.green {
+            background-color: $logged-in-green;
+        }
+        /* /classes used for checking if kids are: present,  not present or sick */
+    }
+}
+
+#own-kids-wrapper {
     .kids {
         .kid {
             background-color:rgb(106, 147, 203);
@@ -26,7 +68,7 @@
                 width: 200px;
                 margin: auto;
             }
-    
+
             p {
                 color: #fff;
                 font-weight: bold;
