@@ -29,7 +29,8 @@
                     <div id="single-message">
                         @foreach($messages as $message)
                             <div class="alert alert-info" role="alert">
-                                {{ $message->content }}
+                                {{ $message->content }}<br>
+                                <small class="text-muted">skapat: {{ $message->created_at->diffForHumans() }}</small>
                             </div>
                         @endforeach
                     </div>
@@ -40,7 +41,7 @@
 
                             <input type="hidden" name="kid_id" value="{{ $kid->id }}">
                             <label for="content">Ditt meddelande:</label>
-                            <textarea name="content" id="content" cols="120"></textarea>
+                            <textarea name="content" id="content" cols="120" class="form-control"></textarea>
 
                             <!-- Displaying errors if user tries to enter false information -->
                             @include('partials/errors')
@@ -51,4 +52,4 @@
                 </div>
             </div>
         </div>
-@endsection 
+@endsection
