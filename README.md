@@ -12,23 +12,26 @@ using authentication so a user(parent) can't edit children of other users, and t
 
 1 - You have to clone this repository
 
-2 - in the root folder in a terminal window type the following command: npm install
-    This installs all the applications depedencies.
+2 - in the root folder in a terminal window type the following command: `composer install`   
+    This installs all the applications node depedencies.   
 
-3 - Open the root folder in a text-editor (ex: Visual Studio Code, Sublime Text, Atom). Here you will see a file called: .env.example
-    Make a copy of this file and rename it to: .env
-    This is the file handling all your environment variables, such as configuration of the database.
-    To use the application you will need a application key, so again go to the terminal in the root folder and type the command: php artisan key:generate --show
-    As a response you will get something showing in the terminal window. Copy whatever is showing and paste it in the .env file next to: APP_KEY=
+3 - in the root folder in a terminal window type the following command: `npm install`   
+    This installs all the applications composer depedencies.   
 
-4 - You will need to setup a Database, and please use the UTF-8 encoding. And update the .env file with your credentials.
-    DB_DATABASE=
-    DB_USERNAME=
-    DB_PASSWORD=
+4 - Open the root folder in a text-editor (ex: Visual Studio Code, Sublime Text, Atom). Here you will see a file called: .env.example   
+    Make a copy of this file and rename it to: .env   
+    This is the file handling all your environment variables, such as configuration of the database.   
+    To use the application you will need a application key, so again go to the terminal in the root folder and type the command: `php artisan key:generate --show`   
+    As a response you will get something showing in the terminal window. Copy whatever is showing and paste it in the .env file next to: APP_KEY=   
 
-5 - Now you can use the predefined migration to populate your database with tables, using the the terminal command: php artisan migrate
+5 - You will need to setup a Database, and please use the UTF-8 encoding. And update the .env file with your credentials.   
+    DB_DATABASE=   
+    DB_USERNAME=   
+    DB_PASSWORD=   
 
-6 - And finally to give you some dummy data to work with, I have also made some database seeding. If you want to use it type the terminal command: php artisan db:seed
+6 - Now you can use the predefined migration to populate your database with tables, using the the terminal command: `php artisan migrate`   
+
+7 - And finally to give you some dummy data to work with, I have also made some database seeding. If you want to use it type the terminal command: `php artisan db:seed`   
 
 ## Code of Conduct
 
