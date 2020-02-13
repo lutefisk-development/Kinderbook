@@ -13,10 +13,10 @@ using authentication so a user(parent) can't edit children of other users, and t
 1 - You have to clone this repository
 
 2 - in the root folder in a terminal window type the following command: `composer install`   
-    This installs all the applications node depedencies.   
+    This installs all the applications composer depedencies.   
 
 3 - in the root folder in a terminal window type the following command: `npm install`   
-    This installs all the applications composer depedencies.   
+    This installs all the applications node depedencies.   
 
 4 - Open the root folder in a text-editor (ex: Visual Studio Code, Sublime Text, Atom). Here you will see a file called: .env.example   
     Make a copy of this file and rename it to: .env   
