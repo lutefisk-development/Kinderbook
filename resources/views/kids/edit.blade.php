@@ -82,7 +82,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input type="date" class="form-control mt-2" name="date_start" value="{{ old('date_start') }}">
+                    <input type="date" class="form-control mt-2" name="date_start" value="{{ old('date_start') }}" min="{{ $today }}">
                     </div>
                     <div class="form-group col-md-6">
                         <input type="date" class="form-control mt-2" name="date_end" value="{{ old('date_end') }}" min="{{ $tomorrow }}">
