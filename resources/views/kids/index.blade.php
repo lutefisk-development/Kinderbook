@@ -41,13 +41,13 @@
             @endforeach
         </div>
         <h1 class="text-center">Alla barn sorterad på varje avdelning:</h1>
-        <div class="row departments mb-3">
-            <div class="card card-body">
+        <div class="card card-body">
+            <div class="row departments mb-3">
                 @foreach($departments as $department)
                     <div class="col-sm-6 col-md-3">
                         <h2>{{ $department->name }}:</h2>
                         @foreach($department->kids as $kid)
-                    <p>{{$kid->first_name}}&nbsp;{{ $kid->last_name }}</p>
+                            <p>{{$kid->first_name}}&nbsp;{{ $kid->last_name }}</p>
                         @endforeach
                     </div>
                 @endforeach
