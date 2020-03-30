@@ -7,7 +7,7 @@
         <p class="text-center">Dagens Datum: {{(new Carbon\Carbon())->toDateString()}}</p>
         <div class="row kids">
             @foreach($kids as $kid)
-                <div class="col-md-4 col-lg-3 d-flex align-items-stretch">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
                     <div
                         @foreach($kid->illnesses as $illness)
                             @if((new Carbon\Carbon())->between($illness->date_start, $illness->date_end))
