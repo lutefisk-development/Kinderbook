@@ -4,7 +4,7 @@
     <div class="container" id="single-kid-wrapper">
         @include('partials/status')
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-2">
                 <div class="card card-body">
                     @if(isset($kid->image->path))
                         <img src="{{ $kid->image->path }}" alt="" class="card-img-top img-fluid" id="kid-image">
@@ -24,7 +24,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-6 d-flex align-items-stretch messages">
+            <div class="col-md-6 d-flex align-items-stretch messages mb-2">
                 <div class="card card-body">
                     <div id="single-message">
                         @foreach($messages as $message)
