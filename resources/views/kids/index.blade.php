@@ -22,20 +22,19 @@
                             <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" alt="" class="card-img-top img-fluid" id="kid-image">
                         @endif
 
-                        {{-- wrapping the p element in a div, to avid unwanted behavior by a eventlistener --}}
+                        {{-- wrapping the p element in a div, to avoid unwanted behavior by a eventlistener --}}
                         <div class="inside">
                             <p class="card-text text-center mt-2">{{ $kid->first_name }}&nbsp;{{ $kid->last_name }}</p>
 
                             @foreach($kid->illnesses as $illness)
                                 @if((new Carbon\Carbon())->between($illness->date_start, $illness->date_end))
-                                    <small class="text-center">Förväntas återkomma: {{ $illness->date_end }}</small>
+                                    <p class="card-text text-center smaller">Förväntas återkomma: {{ $illness->date_end }}</p>
                                 @endif
                             @endforeach
+                            @if(Auth::user()->is_admin() )
+                                <a href="{{ route('kids.show', ['kid' => $kid->id]) }}" class="btn btn-light btn-block">{{ $kid->user->first_name }} {{ $kid->user->last_name }}s barn</a>
+                            @endif
                         </div>
-
-                        @if(Auth::user()->is_admin() )
-                            <a href="{{ route('kids.show', ['kid' => $kid->id]) }}" class="btn btn-light btn-block">{{ $kid->user->first_name }} {{ $kid->user->last_name }}s barn</a>
-                        @endif
                     </div>
                 </div>
             @endforeach

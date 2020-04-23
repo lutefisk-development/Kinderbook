@@ -11510,12 +11510,13 @@ body .layouts-wrapper .row:first-child {
   margin-bottom: 0;
 }
 
-#all-kids-wrapper .kids .kid .inside {
-  margin-bottom: 1rem;
+#all-kids-wrapper .kids .kid .inside .smaller {
+  font-size: 0.6rem;
+  font-weight: normal;
 }
 
-#all-kids-wrapper .kids .kid .inside small {
-  color: #fff;
+#all-kids-wrapper .kids .kid .inside a {
+  margin-top: 1rem;
 }
 
 #all-kids-wrapper .kids .kid.red {
@@ -11589,12 +11590,13 @@ body .layouts-wrapper .row:first-child {
   margin-bottom: 0;
 }
 
-#all-kids-wrapper .kids .kid .inside {
-  margin-bottom: 1rem;
+#all-kids-wrapper .kids .kid .inside .smaller {
+  font-size: 0.6rem;
+  font-weight: normal;
 }
 
-#all-kids-wrapper .kids .kid .inside small {
-  color: #fff;
+#all-kids-wrapper .kids .kid .inside a {
+  margin-top: 1rem;
 }
 
 #all-kids-wrapper .kids .kid.red {

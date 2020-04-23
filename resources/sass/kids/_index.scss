@@ -40,9 +40,13 @@
             }
 
             .inside {
-                margin-bottom: 1rem;
-                small {
-                    color: #fff;
+                .smaller {
+                    font-size: .6rem;
+                    font-weight: normal;
+                }
+
+                a {
+                    margin-top: 1rem;
                 }
             }
         }
