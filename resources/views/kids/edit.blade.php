@@ -42,7 +42,7 @@
                     </div>
             @endif
 
-            @if(Auth::user()->id === $kid->user_id)
+            @if(Auth::id() == $kid->user_id)
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="first_name">Barnets förnamn:</label>

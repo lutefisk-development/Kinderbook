@@ -34,7 +34,7 @@
                             </div>
                         @endforeach
                     </div>
-                    @if(Auth::user()->id === $kid->user_id)
+                    @if(Auth::id() == $kid->user_id)
                         <hr>
                         <form method="POST" action="{{ route('messages.store') }}">
                             @csrf
